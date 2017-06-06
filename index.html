@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Yuri one page Chat</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script type="text/javascript" src="msg-controller.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <style>
+        html, body {
+            height: 100%
+        }
+
+        .input-div {
+            background: #f3f3f3;
+            border-top: 1px solid steelblue;
+            position: absolute;
+            bottom: 0;
+            width: 99%;
+        }
+    </style>
+</head>
+
+
+<body>
+<section ng-controller="msgCtrl">
+
+
+    <div class="modal-body row">
+        <!-- LEFT SCREEN OUTPUT-->
+        <div class="col-6">
+            <!--<p>{{testing}}</p>-->
+            <ul class="list-group">
+                <li ng-repeat="message in messages" class="list-group list-group-item">{{senderModified + ": " +
+                    message.msg}}
+                </li>
+            </ul>
+        </div>
+
+        <!-- RIGHT SCREEN OUTPUT-->
+        <div class="col-6">
+            <!--<h1>{{testing}}</h1>-->
+            <!-- LEFT MESSENGER-->
+            <ul class="list-group">
+                <li ng-repeat="message in messages" class="list-group list-group-item">{{message.sender + ": " +
+                    message.msg}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="modal-body row input-div">
+        <!-- LEFT SCREEN INPUT-->
+        <div class="col-6">
+            <label>Mia:</label>
+            <input type="text" ng-model="formMessageL" ng-keydown="$event.keyCode == 13 && submitMsgLeft()"
+                   class="form-control form-control-lg iii" placeholder="Enter your message...">
+        </div>
+
+        <!-- RIGHT SCREEN INPUT-->
+        <div class="col-6">
+            <label>Bob:</label>
+            <input type="text" ng-model="formMessageR" ng-keydown="$event.keyCode == 13 && submitMsgRight()"
+                   class="form-control form-control-lg" placeholder="Enter your message...">
+        </div>
+    </div>
+
+</section>
+</body>
+</html>
