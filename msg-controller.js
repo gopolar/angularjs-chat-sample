@@ -9,35 +9,26 @@ msgApp.controller("msgCtrl", ["$scope", function ($scope) {
         // {
         //     msg: "hello!",
         //     sender: "Mia"
-        //     senderDisplay: "You"
         // },
         // {
         //     msg: "how are you?",
         //     sender: "Bob"
-        //     senderDisplay: "Bob"
         // },
         // {
         //     msg: "I am great!",
         //     sender: "Mia"
-        //     senderDisplay: "You"
         // }
     ];
 
     $scope.submitMsgLeft = function () {
-
-        // console.log("senderMod = " + $scope.messages[0]);
-
         $scope.messages.push(
             {
                 msg: $scope.formMessageL,
                 sender: "Mia",
             })
+        /* clean the input*/
         $scope.formMessageL = "";
-
-            $scope.senderModified = "You";
-
     }
-
     $scope.submitMsgRight = function () {
         $scope.messages.push(
             {
@@ -45,8 +36,5 @@ msgApp.controller("msgCtrl", ["$scope", function ($scope) {
                 sender: "Bob"
             })
         $scope.formMessageR = "";
-
-        $scope.senderModified = "You";
-
     }
 }]);
